@@ -4,10 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <!-- FAVICON -->
-  <link rel="icon" href="img/logo.jpeg" type="image/jpg">
-  <link rel="apple-touch-icon" href="imagenes/logo.jpeg">
-
+  <link rel="icon" href="img/logo.jpeg" type="image/jpeg">
   <title>Naylin Shop | Moda con Amor</title>
   
   <script src="https://cdn.tailwindcss.com"></script>
@@ -16,26 +13,33 @@
 </head>
 <body class="bg-[#F2E0D2] font-sans overflow-x-hidden">
 
-  <!-- Navbar Profesional -->
-  <nav class="bg-white shadow-sm sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-      <a href="#inicio" class="flex items-center">
-        <img src="img/logo.jpeg" 
-             alt="Naylin Shop Logo" 
-             class="h-16 w-auto object-contain"
-             onerror="this.src='imagenes/logo.jpg'">
-      </a>
-      
-      <div class="hidden md:flex items-center gap-10 text-lg font-medium text-gray-700">
-        <a href="#inicio" class="nav-link">Inicio</a>
-        <a href="#catalogo" class="nav-link">Catálogo</a>
-        <a href="#nosotros" class="nav-link">Nosotros</a>
-        <a href="#contacto" class="nav-link">Contáctanos</a>
+  <!-- Navbar con ocultamiento suave del logo -->
+  <nav id="navbar" class="bg-white shadow-sm sticky top-0 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto">
+      <!-- Logo Grande -->
+      <div id="logo-section" class="bg-[#F9CBD6] py-6 transition-all duration-300 overflow-hidden">
+        <div class="flex justify-center">
+          <img src="img/logo.jpeg" 
+               alt="Naylin Shop" 
+               class="h-20 w-auto object-contain">
+        </div>
       </div>
 
-      <div onclick="toggleCart()" class="relative cursor-pointer">
-        <i class="fa-solid fa-cart-shopping text-2xl text-gray-700 hover:text-[#9E182B] transition"></i>
-        <span id="cart-count" class="absolute -top-2 -right-2 bg-[#9E182B] text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+      <!-- Barra de navegación -->
+      <div class="py-4 bg-white border-b">
+        <div class="flex justify-between items-center px-6">
+          <div class="hidden md:flex flex-1 justify-center gap-10 text-lg font-medium text-gray-700">
+            <a href="#inicio" class="nav-link">Inicio</a>
+            <a href="#catalogo" class="nav-link">Catálogo</a>
+            <a href="#nosotros" class="nav-link">Nosotros</a>
+            <a href="#contacto" class="nav-link">Contáctanos</a>
+          </div>
+
+          <div onclick="toggleCart()" class="relative cursor-pointer">
+            <i class="fa-solid fa-cart-shopping text-2xl text-gray-700 hover:text-[#9E182B]"></i>
+            <span id="cart-count" class="absolute -top-1 -right-1 bg-[#9E182B] text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+          </div>
+        </div>
       </div>
     </div>
   </nav>
@@ -43,12 +47,8 @@
   <!-- Hero -->
   <section id="inicio" class="hero-bg h-screen flex items-center text-white relative">
     <div class="max-w-5xl mx-auto px-6 text-center">
-      <h1 class="text-7xl md:text-8xl font-bold heading text-white mb-6 tracking-tight">Naylin Shop</h1>
-      <p class="text-2xl md:text-3xl mb-10 max-w-2xl mx-auto font-light">Moda delicada y accesorios con alma para la mujer moderna</p>
-      <a href="#catalogo" 
-         class="bg-[#9E182B] hover:bg-[#F2AFBC] text-white px-12 py-6 rounded-full text-xl font-semibold transition-all hover:scale-105 inline-block">
-        Explorar Colección
-      </a>
+      <h1 class="text-7xl md:text-8xl font-bold heading text-white">Naylin Shop</h1>
+      <p class="text-2xl md:text-3xl mt-4">Moda delicada y accesorios con alma</p>
     </div>
   </section>
 
@@ -56,7 +56,6 @@
   <section id="catalogo" class="max-w-7xl mx-auto px-6 py-20">
     <div class="text-center mb-12">
       <h2 class="text-5xl heading font-bold text-[#55634A]">Nuestra Colección</h2>
-      <p class="text-gray-600 mt-3">Piezas seleccionadas con cariño</p>
     </div>
 
     <div class="flex overflow-x-auto gap-4 pb-10 no-scrollbar justify-center">
@@ -65,56 +64,11 @@
       <button onclick="filterCategory('aretes')" class="cat-btn">Aretes</button>
       <button onclick="filterCategory('accesorios')" class="cat-btn">Accesorios</button>
       <button onclick="filterCategory('regalos')" class="cat-btn">Regalos</button>
+      <button onclick="filterCategory('bolsos')" class="cat-btn">Bolsos</button>
     </div>
 
     <div id="grid-productos" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-      <div class="product-item" data-category="blusas" onclick="showProductModal(0)">
-        <div class="product-card">
-          <div class="h-80 overflow-hidden rounded-t-3xl">
-            <img src="https://picsum.photos/id/1015/600/800" class="w-full h-full object-cover hover:scale-110 transition duration-500">
-          </div>
-          <div class="p-6">
-            <h3 class="font-semibold text-lg">Blusa Floral Romance</h3>
-            <p class="text-[#9E182B] font-bold text-2xl mt-1">S/ 89.90</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="product-item" data-category="aretes" onclick="showProductModal(1)">
-        <div class="product-card">
-          <div class="h-80 overflow-hidden rounded-t-3xl">
-            <img src="https://picsum.photos/id/237/600/800" class="w-full h-full object-cover hover:scale-110 transition duration-500">
-          </div>
-          <div class="p-6">
-            <h3 class="font-semibold text-lg">Aretes Perla Dorada</h3>
-            <p class="text-[#9E182B] font-bold text-2xl mt-1">S/ 34.90</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="product-item" data-category="accesorios" onclick="showProductModal(2)">
-        <div class="product-card">
-          <div class="h-80 overflow-hidden rounded-t-3xl">
-            <img src="https://picsum.photos/id/201/600/800" class="w-full h-full object-cover hover:scale-110 transition duration-500">
-          </div>
-          <div class="p-6">
-            <h3 class="font-semibold text-lg">Collar Corazón Minimal</h3>
-            <p class="text-[#9E182B] font-bold text-2xl mt-1">S/ 49.90</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="product-item" data-category="regalos" onclick="showProductModal(3)">
-        <div class="product-card">
-          <div class="h-80 overflow-hidden rounded-t-3xl">
-            <img src="https://picsum.photos/id/180/600/800" class="w-full h-full object-cover hover:scale-110 transition duration-500">
-          </div>
-          <div class="p-6">
-            <h3 class="font-semibold text-lg">Set de Pulseras Amistad</h3>
-            <p class="text-[#9E182B] font-bold text-2xl mt-1">S/ 65.00</p>
-          </div>
-        </div>
-      </div>
+      <!-- Productos generados por JavaScript -->
     </div>
   </section>
 
@@ -126,12 +80,7 @@
           <h2 class="text-5xl heading font-bold text-[#55634A] mb-8">Sobre Naylin Shop</h2>
           <p class="text-lg text-gray-600 leading-relaxed mb-6">
             En Naylin Shop creemos que cada mujer merece sentirse especial. 
-            Seleccionamos cuidadosamente cada pieza para que refleje elegancia, 
-            calidad y ese toque único que te hace brillar.
-          </p>
-          <p class="text-lg text-gray-600 leading-relaxed">
-            Nacimos en Tarapoto con el propósito de ofrecer moda y accesorios 
-            con alma, combinando tendencias actuales con la calidez artesanal.
+            Seleccionamos cuidadosamente cada pieza para que refleje elegancia y calidad.
           </p>
         </div>
         <div class="bg-[#F9CBD6] rounded-3xl p-12 text-center">
@@ -146,76 +95,50 @@
   <section id="contacto" class="py-24 bg-[#55634A] text-white">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <h2 class="text-5xl heading font-bold mb-6">Contáctanos</h2>
-      <p class="text-xl text-[#F2E0D2] mb-12">Estamos aquí para atenderte con cariño</p>
-
-      <div class="grid md:grid-cols-2 gap-10">
-        <div class="bg-white/10 backdrop-blur-md rounded-3xl p-10">
-          <p class="text-2xl font-medium mb-8">Escríbenos por WhatsApp</p>
-          <a href="https://wa.me/51925458744" target="_blank"
-             class="flex items-center justify-center gap-4 bg-[#F2AFBC] hover:bg-white hover:text-[#55634A] text-white py-6 rounded-2xl text-xl font-semibold transition">
-            <i class="fa-brands fa-whatsapp text-4xl"></i>
-            +51 925 458 744
-          </a>
-        </div>
-
-        <div class="text-left space-y-6">
-          <div>
-            <p class="text-[#F9CBD6] font-medium">📍 Dirección</p>
-            <p class="text-[#F2E0D2]">Tarapoto, San Martín - Perú</p>
-          </div>
-          <div>
-            <p class="text-[#F9CBD6] font-medium">📱 Teléfono</p>
-            <p class="text-[#F2E0D2]">+51 925 458 744</p>
-          </div>
-          <div>
-            <p class="text-[#F9CBD6] font-medium">⏰ Horario</p>
-            <p class="text-[#F2E0D2]">Lunes a Sábado • 9:00 am - 8:00 pm</p>
-          </div>
-        </div>
-      </div>
+      <a href="https://wa.me/51925458744" target="_blank" 
+         class="inline-flex items-center gap-4 bg-[#bc5f66] hover:bg-white hover:text-[#55634A] text-white px-10 py-5 rounded-2xl text-xl font-semibold">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+        +51 925 458 744
+      </a>
     </div>
   </section>
 
   <!-- Modal de Producto -->
   <div id="product-modal" class="fixed inset-0 bg-black/70 hidden flex items-center justify-center z-[200]">
-    <div class="bg-white rounded-3xl max-w-2xl w-full mx-4 max-h-[90vh] overflow-hidden">
-      <div class="flex justify-end p-4 border-b">
-        <button onclick="closeModal()" class="text-4xl text-gray-400 hover:text-[#9E182B] transition">&times;</button>
-      </div>
-      <div id="modal-content" class="p-8 overflow-y-auto max-h-[calc(90vh-80px)]"></div>
+    <div class="bg-white rounded-3xl max-w-3xl w-full mx-4 max-h-[90vh] overflow-hidden">
+      <div id="modal-content" class="p-8"></div>
     </div>
   </div>
 
   <!-- Carrito -->
-  <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full sm:w-96 bg-white shadow-2xl z-[100] translate-x-full transition-transform duration-500">
+  <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full sm:w-96 bg-white shadow-2xl z-[100] translate-x-full transition-transform duration-300">
     <div class="p-6 h-full flex flex-col">
       <div class="flex justify-between items-center mb-8">
         <h2 class="text-3xl font-bold text-[#55634A]">Tu Carrito</h2>
         <button onclick="toggleCart()" class="text-4xl text-gray-400 hover:text-gray-900">&times;</button>
       </div>
-      <div id="cart-items" class="flex-grow overflow-y-auto space-y-6 pr-2"></div>
-      <div class="border-t pt-8 mt-auto">
-        <div class="flex justify-between text-2xl font-bold mb-8 text-[#55634A]">
+      <div id="cart-items" class="flex-grow overflow-y-auto space-y-4"></div>
+      <div class="border-t pt-6">
+        <div class="flex justify-between text-2xl font-bold mb-6">
           <span>Total:</span>
           <span id="cart-total" class="text-[#9E182B]">S/ 0.00</span>
         </div>
-        <button onclick="checkout()" 
-                class="w-full bg-[#9E182B] hover:bg-[#F2AFBC] text-white py-5 rounded-2xl font-bold text-lg transition">
+        <button onclick="checkout()" class="w-full bg-[#9E182B] hover:bg-[#bc5f66] text-white py-5 rounded-2xl font-bold text-lg">
           Enviar pedido por WhatsApp
         </button>
       </div>
     </div>
   </div>
 
-  <!-- Botón WhatsApp flotante -->
-  <a href="https://wa.me/51925458744" target="_blank" 
-     class="fixed bottom-6 right-6 bg-[#55634A] text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition text-4xl z-50">
-    <i class="fa-brands fa-whatsapp"></i>
-  </a>
+  <!-- Notificación -->
+  <div id="notification" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 bg-[#9E182B] text-white px-6 py-3 rounded-2xl shadow-2xl flex items-center gap-3 z-[300]">
+    <i class="fa-solid fa-check-circle"></i>
+    <span id="notification-text">Producto agregado al carrito</span>
+  </div>
 
   <footer class="bg-[#55634A] text-white py-12 text-center">
-    <p class="text-[#F9CBD6] font-bold text-2xl mb-2">Naylin Shop</p>
-    <p class="text-[#F2E0D2]">© 2026 • Tarapoto, Perú</p>
+    <p class="text-[#F9CBD6] font-bold text-2xl">Naylin Shop</p>
+    <p class="text-[#F2E0D2]">© 2026 • Moyobamba, Perú</p>
   </footer>
 
   <script src="script.js"></script>
