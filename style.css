@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap');
 
-.heading { font-family: 'Playfair Display', serif; }
+.heading {
+  font-family: 'Playfair Display', serif;
+}
 
+/* Navbar Links */
 .nav-link {
   position: relative;
 }
@@ -15,8 +18,11 @@
   background: #9E182B;
   transition: width 0.3s ease;
 }
-.nav-link:hover:after { width: 100%; }
+.nav-link:hover:after {
+  width: 100%;
+}
 
+/* Hero */
 .hero-bg {
   background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), 
                     url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2070');
@@ -24,6 +30,7 @@
   background-position: center;
 }
 
+/* Product Cards */
 .product-card {
   background: white;
   border-radius: 24px;
@@ -37,13 +44,16 @@
   box-shadow: 0 25px 40px rgba(158, 24, 43, 0.15);
 }
 
+/* Categorías */
 .cat-btn {
-  padding: 12px 28px;
+  padding: 10px 24px;
   border-radius: 9999px;
   background: white;
   border: 2px solid #f3e4d7;
   font-weight: 600;
   color: #55634A;
+  white-space: nowrap;
+  transition: all 0.3s ease;
 }
 
 .cat-btn.active {
@@ -52,7 +62,7 @@
   border-color: #9E182B;
 }
 
-/* Ocultar logo suavemente al hacer scroll */
+/* Navbar Scroll - Ocultar logo suavemente */
 #navbar.scrolled #logo-section {
   height: 0 !important;
   padding-top: 0 !important;
@@ -62,7 +72,12 @@
   transition: all 0.4s ease;
 }
 
-/* Carrito abierto */
+/* Carrito */
 #cart-sidebar.open {
   transform: translateX(0) !important;
+}
+
+/* No scrollbar para categorías */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }

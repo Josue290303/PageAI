@@ -18,7 +18,7 @@ const products = [
   { id: 8, category: "accesorios", name: "Anillo Ajustable", price: 25.90, image: "https://picsum.photos/id/270/600/800", description: "Anillo delicado ajustable." },
 
   // Regalos
-  { id: 9, category: "regalos", name: "Set de Pulseras Amistad", price: 65.00, image: "https://picsum.photos/id/180/600/800", description: "Set de 3 pulseras para amigas." },
+  { id: 9, category: "regalos", name: "Set de Pulseras Amistad", price: 65.00, image: "https://picsum.photos/id/180/600/800", description: "Set de 3 pulseras para compartir." },
   { id: 10, category: "regalos", name: "Caja de Regalo Floral", price: 95.00, image: "https://picsum.photos/id/133/600/800", description: "Caja con accesorios y nota personalizada." },
   { id: 11, category: "regalos", name: "Espejo de Bolsillo", price: 38.90, image: "https://picsum.photos/id/160/600/800", description: "Espejo compacto con diseño floral." },
 
@@ -28,6 +28,7 @@ const products = [
   { id: 14, category: "bolsos", name: "Mini Bolso Rosa", price: 75.00, image: "https://picsum.photos/id/251/600/800", description: "Mini bolso crossbody en rosa pastel." }
 ];
 
+// Renderizar todos los productos
 function renderProducts() {
   const container = document.getElementById('grid-productos');
   container.innerHTML = '';
@@ -51,6 +52,8 @@ function renderProducts() {
   });
 }
 
+let currentQuantity = 1;
+
 function showProductModal(id) {
   const p = products.find(prod => prod.id === id);
   if (!p) return;
@@ -66,12 +69,13 @@ function showProductModal(id) {
         
         <p class="mt-6 text-gray-600">${p.description}</p>
 
+        <!-- Cantidad -->
         <div class="mt-8">
           <p class="font-medium text-gray-500 mb-2">Cantidad</p>
           <div class="flex items-center gap-6">
-            <button onclick="changeQuantity(-1)" class="w-11 h-11 border rounded-full text-2xl hover:bg-gray-100">-</button>
+            <button onclick="changeQuantity(-1)" class="w-11 h-11 border rounded-full text-2xl hover:bg-gray-100 flex items-center justify-center">-</button>
             <span id="modal-quantity" class="text-2xl font-semibold w-12 text-center">1</span>
-            <button onclick="changeQuantity(1)" class="w-11 h-11 border rounded-full text-2xl hover:bg-gray-100">+</button>
+            <button onclick="changeQuantity(1)" class="w-11 h-11 border rounded-full text-2xl hover:bg-gray-100 flex items-center justify-center">+</button>
           </div>
         </div>
 
@@ -87,8 +91,6 @@ function showProductModal(id) {
   document.getElementById('product-modal').classList.remove('hidden');
   document.getElementById('product-modal').classList.add('flex');
 }
-
-let currentQuantity = 1;
 
 function changeQuantity(amount) {
   currentQuantity = Math.max(1, currentQuantity + amount);
@@ -189,33 +191,16 @@ function filterCategory(cat) {
   });
 }
 
-// Inicializar
+// Menú Hamburguesa para móvil
+document.getElementById('menu-button').addEventListener('click', () => {
+  const mobileMenu = document.getElementById('mobile-menu');
+  mobileMenu.classList.toggle('hidden');
+});
+
+// Inicializar productos
 renderProducts();
 
-function renderProducts() {
-  const container = document.getElementById('grid-productos');
-  container.innerHTML = '';
-
-  products.forEach(product => {
-    const div = document.createElement('div');
-    div.className = 'product-item';
-    div.setAttribute('data-category', product.category);
-    div.innerHTML = `
-      <div class="product-card cursor-pointer" onclick="showProductModal(${product.id})">
-        <div class="h-80 overflow-hidden rounded-t-3xl">
-          <img src="${product.image}" class="w-full h-full object-cover hover:scale-110 transition duration-500">
-        </div>
-        <div class="p-6">
-          <h3 class="font-semibold text-lg">${product.name}</h3>
-          <p class="text-[#9E182B] font-bold text-2xl mt-1">S/ ${product.price.toFixed(2)}</p>
-        </div>
-      </div>
-    `;
-    container.appendChild(div);
-  });
-}
-
-// Scroll suave para ocultar logo
+// Scroll para ocultar logo
 window.addEventListener('scroll', () => {
   const navbar = document.getElementById('navbar');
   if (window.scrollY > 100) {
@@ -225,7 +210,7 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// Cerrar modal con ESC
+// Cerrar modal con tecla ESC
 document.addEventListener('keydown', (e) => {
   if (e.key === "Escape") closeModal();
 });

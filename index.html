@@ -13,31 +13,47 @@
 </head>
 <body class="bg-[#F2E0D2] font-sans overflow-x-hidden">
 
-  <!-- Navbar con ocultamiento suave del logo -->
+  <!-- Navbar Responsive -->
   <nav id="navbar" class="bg-white shadow-sm sticky top-0 z-50 transition-all duration-300">
     <div class="max-w-7xl mx-auto">
       <!-- Logo Grande -->
-      <div id="logo-section" class="bg-[#F9CBD6] py-6 transition-all duration-300 overflow-hidden">
+      <div id="logo-section" class="bg-[#F9CBD6] py-5 md:py-6 transition-all duration-300 overflow-hidden">
         <div class="flex justify-center">
-          <img src="img/logo.jpeg" 
-               alt="Naylin Shop" 
-               class="h-20 w-auto object-contain">
+          <img src="img/logo.jpeg" alt="Naylin Shop" class="h-16 md:h-20 w-auto object-contain">
         </div>
       </div>
 
       <!-- Barra de navegación -->
       <div class="py-4 bg-white border-b">
-        <div class="flex justify-between items-center px-6">
-          <div class="hidden md:flex flex-1 justify-center gap-10 text-lg font-medium text-gray-700">
+        <div class="flex justify-between items-center px-4 md:px-6">
+          
+          <!-- Menú Hamburguesa (Móvil) -->
+          <button id="menu-button" class="md:hidden text-2xl text-gray-700">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <!-- Menú Desktop -->
+          <div id="desktop-menu" class="hidden md:flex flex-1 justify-center gap-8 lg:gap-10 text-base md:text-lg font-medium text-gray-700">
             <a href="#inicio" class="nav-link">Inicio</a>
             <a href="#catalogo" class="nav-link">Catálogo</a>
             <a href="#nosotros" class="nav-link">Nosotros</a>
             <a href="#contacto" class="nav-link">Contáctanos</a>
           </div>
 
+          <!-- Carrito -->
           <div onclick="toggleCart()" class="relative cursor-pointer">
             <i class="fa-solid fa-cart-shopping text-2xl text-gray-700 hover:text-[#9E182B]"></i>
             <span id="cart-count" class="absolute -top-1 -right-1 bg-[#9E182B] text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+          </div>
+        </div>
+
+        <!-- Menú Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden px-4 py-4 bg-white border-t">
+          <div class="flex flex-col gap-4 text-lg font-medium text-gray-700">
+            <a href="#inicio" class="nav-link">Inicio</a>
+            <a href="#catalogo" class="nav-link">Catálogo</a>
+            <a href="#nosotros" class="nav-link">Nosotros</a>
+            <a href="#contacto" class="nav-link">Contáctanos</a>
           </div>
         </div>
       </div>
@@ -47,18 +63,18 @@
   <!-- Hero -->
   <section id="inicio" class="hero-bg h-screen flex items-center text-white relative">
     <div class="max-w-5xl mx-auto px-6 text-center">
-      <h1 class="text-7xl md:text-8xl font-bold heading text-white">Naylin Shop</h1>
-      <p class="text-2xl md:text-3xl mt-4">Moda delicada y accesorios con alma</p>
+      <h1 class="text-6xl md:text-7xl lg:text-8xl font-bold heading text-white">Naylin Shop</h1>
+      <p class="text-xl md:text-2xl lg:text-3xl mt-4">Moda delicada y accesorios con alma</p>
     </div>
   </section>
 
   <!-- Catálogo -->
-  <section id="catalogo" class="max-w-7xl mx-auto px-6 py-20">
+  <section id="catalogo" class="max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-20">
     <div class="text-center mb-12">
-      <h2 class="text-5xl heading font-bold text-[#55634A]">Nuestra Colección</h2>
+      <h2 class="text-4xl md:text-5xl heading font-bold text-[#55634A]">Nuestra Colección</h2>
     </div>
 
-    <div class="flex overflow-x-auto gap-4 pb-10 no-scrollbar justify-center">
+    <div class="flex overflow-x-auto gap-3 pb-8 no-scrollbar justify-center">
       <button onclick="filterCategory('todas')" class="cat-btn active">Todas</button>
       <button onclick="filterCategory('blusas')" class="cat-btn">Blusas</button>
       <button onclick="filterCategory('aretes')" class="cat-btn">Aretes</button>
@@ -67,24 +83,21 @@
       <button onclick="filterCategory('bolsos')" class="cat-btn">Bolsos</button>
     </div>
 
-    <div id="grid-productos" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-      <!-- Productos generados por JavaScript -->
+    <div id="grid-productos" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
+      <!-- Productos generados por JS -->
     </div>
   </section>
 
   <!-- Nosotros -->
-  <section id="nosotros" class="bg-white py-24">
+  <section id="nosotros" class="bg-white py-16 md:py-24">
     <div class="max-w-6xl mx-auto px-6">
-      <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
         <div>
-          <h2 class="text-5xl heading font-bold text-[#55634A] mb-8">Sobre Naylin Shop</h2>
-          <p class="text-lg text-gray-600 leading-relaxed mb-6">
-            En Naylin Shop creemos que cada mujer merece sentirse especial. 
-            Seleccionamos cuidadosamente cada pieza para que refleje elegancia y calidad.
-          </p>
+          <h2 class="text-4xl md:text-5xl heading font-bold text-[#55634A] mb-8">Sobre Naylin Shop</h2>
+          <p class="text-lg text-gray-600 leading-relaxed">En Naylin Shop creemos que cada mujer merece sentirse especial.</p>
         </div>
-        <div class="bg-[#F9CBD6] rounded-3xl p-12 text-center">
-          <i class="fa-solid fa-heart text-8xl text-[#9E182B] mb-6"></i>
+        <div class="bg-[#F9CBD6] rounded-3xl p-10 md:p-12 text-center">
+          <i class="fa-solid fa-heart text-7xl md:text-8xl text-[#9E182B] mb-6"></i>
           <p class="text-2xl font-medium text-[#55634A]">“Tu belleza, nuestra pasión”</p>
         </div>
       </div>
@@ -92,21 +105,21 @@
   </section>
 
   <!-- Contáctanos -->
-  <section id="contacto" class="py-24 bg-[#55634A] text-white">
+  <section id="contacto" class="py-16 md:py-24 bg-[#55634A] text-white">
     <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-5xl heading font-bold mb-6">Contáctanos</h2>
+      <h2 class="text-4xl md:text-5xl heading font-bold mb-6">Contáctanos</h2>
       <a href="https://wa.me/51925458744" target="_blank" 
-         class="inline-flex items-center gap-4 bg-[#bc5f66] hover:bg-white hover:text-[#55634A] text-white px-10 py-5 rounded-2xl text-xl font-semibold">
+         class="inline-flex items-center gap-4 bg-[#bc5f66] hover:bg-white hover:text-[#55634A] text-white px-8 md:px-10 py-5 rounded-2xl text-lg md:text-xl font-semibold">
         <i class="fa-brands fa-whatsapp text-3xl"></i>
         +51 925 458 744
       </a>
     </div>
   </section>
 
-  <!-- Modal de Producto -->
-  <div id="product-modal" class="fixed inset-0 bg-black/70 hidden flex items-center justify-center z-[200]">
-    <div class="bg-white rounded-3xl max-w-3xl w-full mx-4 max-h-[90vh] overflow-hidden">
-      <div id="modal-content" class="p-8"></div>
+  <!-- Modal Producto -->
+  <div id="product-modal" class="fixed inset-0 bg-black/70 hidden flex items-center justify-center z-[200] p-4">
+    <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-hidden">
+      <div id="modal-content" class="p-6 md:p-8 overflow-y-auto"></div>
     </div>
   </div>
 
@@ -133,7 +146,7 @@
   <!-- Notificación -->
   <div id="notification" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 bg-[#9E182B] text-white px-6 py-3 rounded-2xl shadow-2xl flex items-center gap-3 z-[300]">
     <i class="fa-solid fa-check-circle"></i>
-    <span id="notification-text">Producto agregado al carrito</span>
+    <span id="notification-text">Producto agregado</span>
   </div>
 
   <footer class="bg-[#55634A] text-white py-12 text-center">
