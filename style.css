@@ -1,10 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap');
 
-.heading {
-  font-family: 'Playfair Display', serif;
+.heading { 
+  font-family: 'Playfair Display', serif; 
 }
 
-/* Navbar Links */
 .nav-link {
   position: relative;
 }
@@ -18,66 +17,87 @@
   background: #9E182B;
   transition: width 0.3s ease;
 }
-.nav-link:hover:after {
-  width: 100%;
-}
+.nav-link:hover:after { width: 100%; }
 
-/* Hero */
 .hero-bg {
-  background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), 
+  background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
                     url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2070');
   background-size: cover;
   background-position: center;
 }
 
-/* Product Cards */
 .product-card {
   background: white;
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
   transition: all 0.4s ease;
 }
-
 .product-card:hover {
   transform: translateY(-12px);
-  box-shadow: 0 25px 40px rgba(158, 24, 43, 0.15);
+  box-shadow: 0 20px 30px rgba(0,0,0,0.12);
 }
 
-/* Categorías */
 .cat-btn {
-  padding: 10px 24px;
+  padding: 10px 26px;
   border-radius: 9999px;
   background: white;
   border: 2px solid #f3e4d7;
   font-weight: 600;
   color: #55634A;
   white-space: nowrap;
-  transition: all 0.3s ease;
+  transition: all 0.3s;
 }
-
 .cat-btn.active {
   background: #9E182B;
   color: white;
   border-color: #9E182B;
 }
 
-/* Navbar Scroll - Ocultar logo suavemente */
 #navbar.scrolled #logo-section {
   height: 0 !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
+  padding: 0 !important;
   opacity: 0;
-  overflow: hidden;
-  transition: all 0.4s ease;
 }
 
-/* Carrito */
 #cart-sidebar.open {
   transform: translateX(0) !important;
 }
 
-/* No scrollbar para categorías */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
+/* MODAL PROFESIONAL */
+#product-modal {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+#modal-content img.main-image {
+  max-height: 480px;
+  width: 100%;
+  object-fit: contain;
+  border-radius: 20px;
+  background: #fdf4f6;
+}
+
+.thumbnail {
+  transition: all 0.3s ease;
+  border: 3px solid transparent;
+  border-radius: 12px;
+}
+.thumbnail:hover,
+.thumbnail.active {
+  border-color: #9E182B;
+  transform: scale(1.08);
+}
+
+.close-modal-btn {
+  transition: all 0.2s;
+}
+.close-modal-btn:hover {
+  background-color: #fee2e2;
+  color: #ef4444;
+  transform: rotate(90deg);
 }
