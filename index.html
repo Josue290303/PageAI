@@ -3,138 +3,318 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="img/pestana.png" type="image/jpeg">
   <title>Naylin Shop | Moda con Amor</title>
-
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="attachments/pestana.png" type="image/jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-[#F2E0D2] font-sans overflow-x-hidden">
+<body>
 
-  <!-- Navbar -->
-  <nav id="navbar" class="bg-white shadow-sm sticky top-0 z-50 transition-all duration-300">
-    <div class="max-w-7xl mx-auto">
-      <div id="logo-section" class="bg-[#F9CBD6] py-6 transition-all duration-300 overflow-hidden">
-        <div class="flex justify-center">
-          <img src="img/logo.jpeg" alt="Naylin Shop" class="h-16 md:h-24 w-auto object-contain">
-        </div>
+<!-- Fondo principal -->
+<div class="main-bg">
+  <img src="/attachments/Capibaras mediano1.jpg" alt="">
+</div>
+
+<!-- Capibaras flotantes -->
+<div class="floating-capis">
+  <img src="/attachments/Capi Frambbuesas.png" class="float-capi capi1" alt="">
+  <img src="/attachments/Capi Moras.png" class="float-capi capi2" alt="">
+  <img src="/attachments/Capi Piña.png" class="float-capi capi3" alt="">
+  <img src="/attachments/Capibara Lista.png" class="float-capi capi4" alt="">
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="#" class="logo">
+      <img src="/attachments/logo.jpeg" alt="Naylin Shop" class="logo-img">
+    </a>
+    <div class="nav-links">
+      <a href="#inicio" class="nav-link">Inicio</a>
+      <a href="#catalogo" class="nav-link">Catálogo</a>
+      <a href="#nosotros" class="nav-link">Nosotros</a>
+      <a href="#contacto" class="nav-link">Contáctanos</a>
+    </div>
+    <div class="nav-actions">
+      <button class="cart-btn" onclick="toggleCart()" aria-label="Carrito de compras">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span class="cart-badge" id="cart-count">0</span>
+      </button>
+      <button class="menu-btn" id="menu-btn" onclick="toggleMenu()" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <!-- Menú móvil -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#inicio" onclick="toggleMenu()">Inicio</a>
+    <a href="#catalogo" onclick="toggleMenu()">Catálogo</a>
+    <a href="#nosotros" onclick="toggleMenu()">Nosotros</a>
+    <a href="#contacto" onclick="toggleMenu()">Contáctanos</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="inicio" class="hero">
+  <div class="hero-container">
+    <div class="hero-text" data-aos="fade-right">
+      <span class="hero-badge">✦ Colección 2026 ✦</span>
+      <h1 class="hero-main">Nuevas<br><em>Novedades</em></h1>
+      <p class="hero-sub">Manualidades y accesorios con alma,<br>desde Tarapoto para todo el Perú.</p>
+      <div class="hero-ctas">
+        <a href="#catalogo" class="btn-primary">Comprar ahora</a>
+        <a href="#nosotros" class="btn-ghost">Nuestra historia</a>
       </div>
-      <div class="py-4 bg-white border-b">
-        <div class="flex justify-between items-center px-4 md:px-6">
-          <button id="menu-button" class="md:hidden text-3xl text-gray-700">
-            <i class="fa-solid fa-bars"></i>
-          </button>
-          <div class="hidden md:flex flex-1 justify-center gap-8 lg:gap-12 text-lg font-medium text-gray-700">
-            <a href="#inicio" class="nav-link">Inicio</a>
-            <a href="#catalogo" class="nav-link">Catálogo</a>
-            <a href="#nosotros" class="nav-link">Nosotros</a>
-            <a href="#contacto" class="nav-link">Contáctanos</a>
-          </div>
-          <div onclick="toggleCart()" class="relative cursor-pointer">
-            <i class="fa-solid fa-cart-shopping text-2xl text-gray-700 hover:text-[#9E182B]"></i>
-            <span id="cart-count" class="absolute -top-1 -right-1 bg-[#9E182B] text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
-          </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <strong>500+</strong>
+          <span>Clientas felices</span>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden px-4 py-5 bg-white border-t">
-          <div class="flex flex-col gap-5 text-lg font-medium text-gray-700">
-            <a href="#inicio" class="nav-link">Inicio</a>
-            <a href="#catalogo" class="nav-link">Catálogo</a>
-            <a href="#nosotros" class="nav-link">Nosotros</a>
-            <a href="#contacto" class="nav-link">Contáctanos</a>
-          </div>
+        <div class="stat-div"></div>
+        <div class="stat">
+          <strong>100%</strong>
+          <span>Hecho con amor</span>
         </div>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero -->
-  <section id="inicio" class="hero-bg h-screen flex items-center text-white relative">
-    <div class="max-w-5xl mx-auto px-6 text-center">
-      <h1 class="text-6xl md:text-7xl lg:text-8xl font-bold heading text-white">Naylin Shop</h1>
-      <p class="text-xl md:text-2xl lg:text-3xl mt-4">Moda delicada y accesorios con alma</p>
-    </div>
-  </section>
-
-  <!-- Catálogo -->
-  <section id="catalogo" class="max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-20">
-    <div class="text-center mb-12">
-      <h2 class="text-4xl md:text-5xl heading font-bold text-[#55634A]">Nuestra Colección</h2>
-    </div>
-    <div class="flex flex-wrap gap-3 pb-8 justify-center">
-      <button onclick="filterCategory('todas')" class="cat-btn active">Todas</button>
-      <button onclick="filterCategory('blusas')" class="cat-btn">Blusas</button>
-      <button onclick="filterCategory('aretes')" class="cat-btn">Aretes</button>
-      <button onclick="filterCategory('accesorios')" class="cat-btn">Accesorios</button>
-      <button onclick="filterCategory('regalos')" class="cat-btn">Regalos</button>
-      <button onclick="filterCategory('bolsos')" class="cat-btn">Bolsos</button>
-    </div>
-    <div id="grid-productos" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8"></div>
-  </section>
-
-  <!-- Nosotros -->
-  <section id="nosotros" class="bg-white py-16 md:py-24">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div>
-          <h2 class="text-4xl md:text-5xl heading font-bold text-[#55634A] mb-8">Sobre Naylin Shop</h2>
-          <p class="text-lg text-gray-600 leading-relaxed">En Naylin Shop creemos que cada mujer merece sentirse especial. Seleccionamos cuidadosamente cada pieza para que refleje elegancia y calidad.</p>
-        </div>
-        <div class="bg-[#F9CBD6] rounded-3xl p-10 md:p-12 text-center">
-          <i class="fa-solid fa-heart text-7xl md:text-8xl text-[#9E182B] mb-6"></i>
-          <p class="text-2xl font-medium text-[#55634A]">“Tu belleza, nuestra pasión”</p>
+        <div class="stat-div"></div>
+        <div class="stat">
+          <strong>4.9★</strong>
+          <span>Valoración</span>
         </div>
       </div>
     </div>
-  </section>
+    <div class="hero-image" data-aos="fade-left">
+      <div class="hero-img-frame">
+        <img src="/attachments/foto mochila.png" alt="Mochila Naylin Shop">
+        <div class="hero-img-badge">
+          <span class="badge-icon">✦</span>
+          <span>Nuevo</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <span>Descubre</span>
+    <i class="fa-solid fa-chevron-down"></i>
+  </div>
+</section>
 
-  <!-- Contáctanos -->
-  <section id="contacto" class="py-16 md:py-24 bg-[#55634A] text-white">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-4xl md:text-5xl heading font-bold mb-6">Contáctanos</h2>
-      <a href="https://wa.me/51925458744" target="_blank" class="inline-flex items-center gap-4 bg-[#bc5f66] hover:bg-white hover:text-[#55634A] text-white px-8 md:px-10 py-5 rounded-2xl text-lg md:text-xl font-semibold">
-        <i class="fa-brands fa-whatsapp text-3xl"></i>
-        +51 925 458 744
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>Blusas</span><span class="mx">✦</span>
+    <span>Aretes</span><span class="mx">✦</span>
+    <span>Bolsos</span><span class="mx">✦</span>
+    <span>Accesorios</span><span class="mx">✦</span>
+    <span>Regalos</span><span class="mx">✦</span>
+    <span>Capibaras Cute</span><span class="mx">✦</span>
+    <span>Moda con Amor</span><span class="mx">✦</span>
+    <span>Tarapoto</span><span class="mx">✦</span>
+    <span>Blusas</span><span class="mx">✦</span>
+    <span>Aretes</span><span class="mx">✦</span>
+    <span>Bolsos</span><span class="mx">✦</span>
+    <span>Accesorios</span><span class="mx">✦</span>
+    <span>Regalos</span><span class="mx">✦</span>
+    <span>Capibaras Cute</span><span class="mx">✦</span>
+    <span>Moda con Amor</span><span class="mx">✦</span>
+    <span>Tarapoto</span><span class="mx">✦</span>
+  </div>
+</div>
+
+<!-- CATEGORÍAS -->
+<section class="categories-section">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-pre">— Explora —</span>
+      <h2 class="section-title">Nuestras Categorías</h2>
+    </div>
+    <div class="categories-grid">
+      <div class="cat-card" onclick="filterCategory('blusas'); document.getElementById('catalogo').scrollIntoView({behavior:'smooth'})">
+        <div class="cat-icon"><i class="fa-solid fa-shirt"></i></div>
+        <h3>Blusas</h3>
+        <p>Elegancia casual</p>
+      </div>
+      <div class="cat-card" onclick="filterCategory('aretes'); document.getElementById('catalogo').scrollIntoView({behavior:'smooth'})">
+        <div class="cat-icon"><i class="fa-solid fa-gem"></i></div>
+        <h3>Aretes</h3>
+        <p>Brillan contigo</p>
+      </div>
+      <div class="cat-card" onclick="filterCategory('bolsos'); document.getElementById('catalogo').scrollIntoView({behavior:'smooth'})">
+        <div class="cat-icon"><i class="fa-solid fa-bag-shopping"></i></div>
+        <h3>Bolsos</h3>
+        <p>Estilo y función</p>
+      </div>
+      <div class="cat-card" onclick="filterCategory('accesorios'); document.getElementById('catalogo').scrollIntoView({behavior:'smooth'})">
+        <div class="cat-icon"><i class="fa-solid fa-star"></i></div>
+        <h3>Accesorios</h3>
+        <p>El toque final</p>
+      </div>
+      <div class="cat-card" onclick="filterCategory('regalos'); document.getElementById('catalogo').scrollIntoView({behavior:'smooth'})">
+        <div class="cat-icon"><i class="fa-solid fa-gift"></i></div>
+        <h3>Regalos</h3>
+        <p>Con mucho amor</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATÁLOGO -->
+<section id="catalogo" class="catalog-section">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-pre">— Nuestra Colección —</span>
+      <h2 class="section-title">Productos Destacados</h2>
+    </div>
+    <div class="filter-bar">
+      <button onclick="filterCategory('todas')" class="cat-btn active" data-cat="todas">Todas</button>
+      <button onclick="filterCategory('blusas')" class="cat-btn" data-cat="blusas">Blusas</button>
+      <button onclick="filterCategory('aretes')" class="cat-btn" data-cat="aretes">Aretes</button>
+      <button onclick="filterCategory('accesorios')" class="cat-btn" data-cat="accesorios">Accesorios</button>
+      <button onclick="filterCategory('regalos')" class="cat-btn" data-cat="regalos">Regalos</button>
+      <button onclick="filterCategory('bolsos')" class="cat-btn" data-cat="bolsos">Bolsos</button>
+    </div>
+    <div id="grid-productos" class="products-grid"></div>
+  </div>
+</section>
+
+<!-- NOSOTROS -->
+<section id="nosotros" class="about-section">
+  <div class="about-container">
+    <div class="about-text">
+      <span class="section-pre">— Quiénes Somos —</span>
+      <h2 class="section-title">Sobre Naylin Shop</h2>
+      <p class="about-desc">En Naylin Shop creemos que cada mujer merece sentirse especial. Seleccionamos cuidadosamente cada pieza con amor y calidad, desde el corazón de Tarapoto para todo el Perú.</p>
+      <div class="about-values">
+        <div class="value-item">
+          <i class="fa-solid fa-heart"></i>
+          <span>Hecho con amor</span>
+        </div>
+        <div class="value-item">
+          <i class="fa-solid fa-medal"></i>
+          <span>Alta calidad</span>
+        </div>
+        <div class="value-item">
+          <i class="fa-solid fa-truck-fast"></i>
+          <span>Envíos a todo el Perú</span>
+        </div>
+      </div>
+    </div>
+    <div class="about-image">
+      <img src="/attachments/Capibara Lista.png" alt="Naylin Shop Mascota" class="about-capi">
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIO -->
+<section class="testimonials-section">
+  <div class="section-inner">
+    <span class="section-pre">— Ellas nos quieren —</span>
+    <h2 class="section-title">Lo que dicen nuestras clientas</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"Los aretes son preciosos, exactamente como en las fotos. ¡Super rápida la entrega!"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">L</div>
+          <span>Luciana M. — Lima</span>
+        </div>
+      </div>
+      <div class="testimonial-card featured">
+        <div class="stars">★★★★★</div>
+        <p>"Compré una blusa y un bolso, quedé encantada. La calidad es hermosa y el empaque con mucho amor ❤️"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">V</div>
+          <span>Valeria R. — Tarapoto</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"El regalo que pedí llegó perfecto y a tiempo. Mi amiga amó cada detalle. ¡Gracias Naylin!"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">S</div>
+          <span>Sandra P. — Trujillo</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="contact-section">
+  <div class="contact-inner">
+    <span class="section-pre">— Estamos para ti —</span>
+    <h2 class="section-title">Contáctanos</h2>
+    <p class="contact-sub">¿Tienes dudas sobre un producto o quieres hacer un pedido especial? Escríbenos por WhatsApp.</p>
+    <a href="https://wa.me/51925458744" target="_blank" class="wa-btn">
+      <i class="fa-brands fa-whatsapp"></i>
+      <span>Chatear en WhatsApp</span>
+      <small>+51 925 458 744</small>
+    </a>
+    <div class="social-links">
+      <a href="#" class="social-link" aria-label="Instagram">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a href="#" class="social-link" aria-label="TikTok">
+        <i class="fa-brands fa-tiktok"></i>
+      </a>
+      <a href="#" class="social-link" aria-label="Facebook">
+        <i class="fa-brands fa-facebook"></i>
       </a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Modal Profesional -->
-  <div id="product-modal" class="fixed inset-0 bg-black/70 hidden flex items-center justify-center z-[200] p-4">
-    <div class="bg-white rounded-3xl max-w-5xl w-full max-h-[95vh] overflow-hidden shadow-2xl">
-      <div id="modal-content" class="p-6 md:p-12 overflow-y-auto"></div>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="/attachments/logo.jpeg" alt="Naylin Shop" class="footer-logo">
+      <p>Moda con Amor desde Tarapoto, Perú</p>
+    </div>
+    <div class="footer-links">
+      <a href="#inicio">Inicio</a>
+      <a href="#catalogo">Catálogo</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <img src="/attachments/Capibara Lista.png" class="footer-capi" alt="">
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Naylin Shop · Todos los derechos reservados</p>
+  </div>
+</footer>
+
+<!-- CARRITO LATERAL -->
+<div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+<div class="cart-drawer" id="cart-drawer">
+  <div class="cart-header">
+    <h3>Mi Carrito</h3>
+    <button onclick="toggleCart()" class="cart-close"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <div class="cart-items" id="cart-items">
+    <div class="cart-empty">
+      <i class="fa-solid fa-bag-shopping"></i>
+      <p>Tu carrito está vacío</p>
     </div>
   </div>
-
-  <!-- Carrito -->
-  <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full sm:w-96 bg-white shadow-2xl z-[100] translate-x-full transition-transform duration-300">
-    <div class="p-6 h-full flex flex-col">
-      <div class="flex justify-between items-center mb-8">
-        <h2 class="text-3xl font-bold text-[#55634A]">Tu Carrito</h2>
-        <button onclick="toggleCart()" class="text-4xl text-gray-400 hover:text-gray-900">×</button>
-      </div>
-      <div id="cart-items" class="flex-grow overflow-y-auto space-y-4"></div>
-      <div class="border-t pt-6">
-        <div class="flex justify-between text-2xl font-bold mb-6">
-          <span>Total:</span>
-          <span id="cart-total" class="text-[#9E182B]">S/ 0.00</span>
-        </div>
-        <button onclick="checkout()" class="w-full bg-[#9E182B] hover:bg-[#c45a6a] text-white py-5 rounded-2xl font-bold text-lg">Enviar pedido por WhatsApp</button>
-      </div>
+  <div class="cart-footer" id="cart-footer" style="display:none">
+    <div class="cart-total">
+      <span>Total:</span>
+      <strong id="cart-total">S/ 0.00</strong>
     </div>
+    <a href="https://wa.me/51925458744" target="_blank" class="btn-primary btn-full">
+      <i class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp
+    </a>
   </div>
+</div>
 
-  <!-- Notificación -->
-  <div id="notification" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 bg-[#9E182B] text-white px-6 py-3 rounded-2xl shadow-2xl flex items-center gap-3 z-[300]">
-    <i class="fa-solid fa-check-circle"></i>
-    <span id="notification-text">Producto agregado</span>
-  </div>
+<!-- TOAST NOTIFICACIÓN -->
+<div class="toast" id="toast">
+  <i class="fa-solid fa-check-circle"></i>
+  <span id="toast-msg">Producto agregado al carrito</span>
+</div>
 
-  <footer class="bg-[#55634A] text-white py-12 text-center">
-    <p class="text-[#F9CBD6] font-bold text-2xl">Naylin Shop</p>
-    <p class="text-[#F2E0D2]">© 2026 • Moyobamba, Perú</p>
-  </footer>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
