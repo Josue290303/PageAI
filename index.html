@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Naylin Shop | Moda con Amor</title>
-  <link rel="icon" href="attachments/pestana.png" type="image/jpeg">
+  <link rel="icon" href="/attachments/pestana.jpeg" type="image/jpeg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="icon" href="attachments/pestana.png" type="image/jpeg">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
@@ -25,17 +26,21 @@
   <img src="/attachments/Capibara Lista.png" class="float-capi capi4" alt="">
 </div>
 
-<!-- NAVBAR -->
+<!-- HEADER: Logo centrado arriba (como en la captura) -->
+<header class="site-header">
+  <a href="#" class="site-logo-link">
+    <img src="/attachments/logo.jpeg" alt="Naylin Shop" class="site-logo-img">
+  </a>
+</header>
+
+<!-- NAVBAR: Barra con links (fondo rosado, como en la captura) -->
 <nav class="navbar" id="navbar">
   <div class="nav-container">
-    <a href="#" class="logo">
-      <img src="/attachments/logo.jpeg" alt="Naylin Shop" class="logo-img">
-    </a>
     <div class="nav-links">
       <a href="#inicio" class="nav-link">Inicio</a>
       <a href="#catalogo" class="nav-link">Catálogo</a>
       <a href="#nosotros" class="nav-link">Nosotros</a>
-      <a href="#contacto" class="nav-link">Contáctanos</a>
+      <a href="#contacto" class="nav-link">Contáctos</a>
     </div>
     <div class="nav-actions">
       <button class="cart-btn" onclick="toggleCart()" aria-label="Carrito de compras">
@@ -47,7 +52,6 @@
       </button>
     </div>
   </div>
-  <!-- Menú móvil -->
   <div class="mobile-menu" id="mobile-menu">
     <a href="#inicio" onclick="toggleMenu()">Inicio</a>
     <a href="#catalogo" onclick="toggleMenu()">Catálogo</a>
@@ -56,59 +60,29 @@
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- HERO: Fondo crema, texto izquierda bold, imagen derecha -->
 <section id="inicio" class="hero">
   <div class="hero-container">
-    <div class="hero-text" data-aos="fade-right">
-      <span class="hero-badge">✦ Colección 2026 ✦</span>
-      <h1 class="hero-main">Nuevas<br><em>Novedades</em></h1>
-      <p class="hero-sub">Manualidades y accesorios con alma,<br>desde Tarapoto para todo el Perú.</p>
+    <div class="hero-text">
+      <h1 class="hero-main">Nuevas<br>Novedades!</h1>
+      <p class="hero-sub">MANUALIDADES Y ACCESORIOS</p>
       <div class="hero-ctas">
-        <a href="#catalogo" class="btn-primary">Comprar ahora</a>
-        <a href="#nosotros" class="btn-ghost">Nuestra historia</a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat">
-          <strong>500+</strong>
-          <span>Clientas felices</span>
-        </div>
-        <div class="stat-div"></div>
-        <div class="stat">
-          <strong>100%</strong>
-          <span>Hecho con amor</span>
-        </div>
-        <div class="stat-div"></div>
-        <div class="stat">
-          <strong>4.9★</strong>
-          <span>Valoración</span>
-        </div>
+        <a href="#catalogo" class="btn-primary">COMPRAR AHORA</a>
       </div>
     </div>
-    <div class="hero-image" data-aos="fade-left">
-      <div class="hero-img-frame">
-        <img src="/attachments/foto mochila.png" alt="Mochila Naylin Shop">
-        <div class="hero-img-badge">
-          <span class="badge-icon">✦</span>
-          <span>Nuevo</span>
-        </div>
-      </div>
+    <div class="hero-image">
+      <img src="/attachments/foto mochila.png" alt="Producto Naylin Shop">
     </div>
-  </div>
-  <div class="hero-scroll-hint">
-    <span>Descubre</span>
-    <i class="fa-solid fa-chevron-down"></i>
   </div>
 </section>
 
-<!-- MARQUEE -->
+<!-- MARQUEE: Verde oscuro con texto claro (como en la captura) -->
 <div class="marquee-wrap">
   <div class="marquee-track">
-    <span>Blusas</span><span class="mx">✦</span>
-    <span>Aretes</span><span class="mx">✦</span>
     <span>Bolsos</span><span class="mx">✦</span>
     <span>Accesorios</span><span class="mx">✦</span>
     <span>Regalos</span><span class="mx">✦</span>
-    <span>Capibaras Cute</span><span class="mx">✦</span>
+    <span>Hello Kitty</span><span class="mx">✦</span>
     <span>Moda con Amor</span><span class="mx">✦</span>
     <span>Tarapoto</span><span class="mx">✦</span>
     <span>Blusas</span><span class="mx">✦</span>
@@ -116,9 +90,11 @@
     <span>Bolsos</span><span class="mx">✦</span>
     <span>Accesorios</span><span class="mx">✦</span>
     <span>Regalos</span><span class="mx">✦</span>
-    <span>Capibaras Cute</span><span class="mx">✦</span>
+    <span>Hello Kitty</span><span class="mx">✦</span>
     <span>Moda con Amor</span><span class="mx">✦</span>
     <span>Tarapoto</span><span class="mx">✦</span>
+    <span>Blusas</span><span class="mx">✦</span>
+    <span>Aretes</span><span class="mx">✦</span>
   </div>
 </div>
 
